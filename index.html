@@ -4,141 +4,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
-    <!-- Font cantik dan membulat dari Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <title>Undangan Pernikahan - Aini & Ayang</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <style>
         body {
-            background-color: #ffffff;
-            font-family: 'Nunito', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .no-scroll {
             overflow: hidden;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            z-index: 10;
+        /* Animasi Melayang untuk Dekorasi Cover */
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
         }
 
-        .gif-container {
-            width: 220px;
-            max-width: 100%;
-            pointer-events: none;
-            margin-bottom: 10px;
+        .animate-blob {
+            animation: blob 7s infinite;
         }
 
-        h1 {
-            color: #ff69b4;
-            font-size: 1.5rem;
-            background-color: #fff0f5;
-            padding: 10px 25px;
-            border-radius: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.15);
+        .animation-delay-2000 {
+            animation-delay: 2s;
         }
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* Timeline Khusus Mobile-First */
+        .timeline-container {
+            position: relative;
         }
 
-        button {
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Nunito', sans-serif;
-            font-weight: bold;
-            transition: all 0.2s ease;
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #bae6fd;
+            /* sky-200 */
+            left: 24px;
+            /* Posisi kiri untuk Mobile */
+            z-index: 0;
         }
 
-        #btn-saya {
-            background-color: #ff69b4;
-            color: white;
-            padding: 12px 24px;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-            white-space: nowrap;
-        }
-
-        #btn-saya:hover {
-            background-color: #ff1493;
-        }
-
-        #btn-bukan {
-            background-color: #f0f0f0;
-            color: #777;
-            padding: 12px 24px;
-            font-size: 16px;
-            white-space: nowrap;
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased no-scroll" id="body-content">
 
-    <div class="container">
-        <div class="gif-container">
-            <div class="tenor-gif-embed" data-postid="14039433467847577032" data-share-method="host"
-                data-aspect-ratio="1" data-width="100%">
-                <a href="https://tenor.com/view/bubu-gif-14039433467847577032">Bubu Sticker</a>from
-                <a href="https://tenor.com/search/bubu-stickers">Bubu Stickers</a>
+    <!-- HERO / COVER SECTION -->
+    <section id="cover"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-sky-50 via-white to-blue-100 transition-transform duration-1000 ease-in-out overflow-hidden">
+
+        <!-- Efek Blur Latar Belakang -->
+        <div
+            class="absolute top-10 left-10 w-48 h-48 md:w-72 md:h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob">
+        </div>
+        <div
+            class="absolute bottom-10 right-10 w-48 h-48 md:w-72 md:h-72 bg-sky-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000">
+        </div>
+
+        <div class="relative z-10 text-center px-6 w-full max-w-lg flex flex-col items-center">
+            <p class="text-xs md:text-sm tracking-[0.2em] text-blue-500 mb-3 uppercase font-semibold">Pernikahan</p>
+            <h1 class="text-6xl md:text-8xl font-cursive text-blue-900 mb-2 drop-shadow-sm leading-tight">Aini & Ayang
+            </h1>
+            <p class="text-base md:text-lg text-blue-600 mb-8 font-light tracking-[0.15em]">31 . 13 . 2095</p>
+
+            <div
+                class="mb-10 w-full p-6 md:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-white/50 shadow-2xl shadow-blue-900/10">
+                <p class="text-xs md:text-sm text-slate-500 mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <h2 id="nama-tamu" class="text-2xl md:text-3xl font-bold text-blue-900 mb-3">Tamu Spesial</h2>
+                <span
+                    class="inline-block px-4 py-1.5 bg-blue-50/80 text-blue-700 text-[10px] md:text-xs rounded-full font-medium tracking-wide">Mohon
+                    kehadiran & doanya</span>
             </div>
-            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+            <button onclick="bukaUndangan()"
+                class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-sky-500 text-white px-8 py-3.5 rounded-full shadow-xl shadow-blue-500/20 hover:shadow-blue-500/40 active:scale-95 transition-all font-medium flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                Buka Undangan
+            </button>
         </div>
+    </section>
 
-        <h1>Siapa yang ulang tahun hari ini?</h1>
+    <!-- SECTION 1: PROFIL MEMPELAI -->
+    <section id="profil" class="py-20 md:py-28 bg-white relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12 md:mb-20">
+                <p class="text-sky-500 font-medium tracking-[0.15em] uppercase text-xs mb-2">Bismillah</p>
+                <h2 class="text-4xl md:text-5xl font-cursive text-blue-900">Sang Mempelai</h2>
+            </div>
 
-        <div class="buttons">
-            <button id="btn-saya">Saya</button>
-            <button id="btn-bukan">Bukan saya</button>
+            <div class="flex flex-col gap-16 md:gap-20">
+                <!-- Mempelai Pria -->
+                <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-6 md:gap-10">
+                    <div
+                        class="w-44 h-44 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden border-8 border-sky-50 shadow-xl shadow-sky-100/50 relative">
+                        <img src="https://via.placeholder.com/400?text=Foto+Aini" alt="M. Aini"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-cursive text-blue-800 mb-2">M. Aini</h3>
+                        <p class="text-slate-500 text-sm md:text-base mb-4 leading-relaxed">Putra dari<br><span
+                                class="font-medium text-slate-700">Bapak Fulan & Ibu Fulanah</span></p>
+                        <a href="#"
+                            class="inline-flex items-center justify-center px-5 py-2 bg-slate-50 rounded-full text-xs text-slate-500 hover:bg-sky-50 hover:text-sky-600 transition border border-slate-100">@ig_aini</a>
+                    </div>
+                </div>
+
+                <!-- Dan (Ampersand untuk Mobile) -->
+                <div class="text-5xl md:hidden font-cursive text-sky-200 text-center -my-6">&</div>
+
+                <!-- Mempelai Wanita -->
+                <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-right gap-6 md:gap-10">
+                    <div
+                        class="w-44 h-44 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden border-8 border-sky-50 shadow-xl shadow-sky-100/50">
+                        <img src="https://via.placeholder.com/400?text=Foto+Ayang" alt="Ayang"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-cursive text-blue-800 mb-2">Ayang</h3>
+                        <p class="text-slate-500 text-sm md:text-base mb-4 leading-relaxed">Putri dari<br><span
+                                class="font-medium text-slate-700">Bapak Fulan & Ibu Fulanah</span></p>
+                        <a href="#"
+                            class="inline-flex items-center justify-center px-5 py-2 bg-slate-50 rounded-full text-xs text-slate-500 hover:bg-sky-50 hover:text-sky-600 transition border border-slate-100">@ig_ayang</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- SECTION 2: KUTIPAN -->
+    <section class="py-16 md:py-24 bg-blue-900 text-center px-6 text-sky-50 relative overflow-hidden">
+        <!-- Dekorasi Ornamen -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 border border-sky-500/20 rounded-full opacity-50"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 border border-sky-500/20 rounded-full opacity-50"></div>
+
+        <div class="max-w-2xl mx-auto relative z-10">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10 md:h-12 md:w-12 mx-auto mb-6 text-sky-400 opacity-60" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="italic leading-relaxed text-base md:text-lg font-light text-sky-100">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu
+                sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."
+            </p>
+            <p class="mt-6 font-medium tracking-[0.15em] text-xs md:text-sm text-sky-400">Q.S AR-RUM: 21</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: DETAIL ACARA (Timeline Mobile-Optimized) -->
+    <section id="acara" class="py-20 md:py-28 bg-sky-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-cursive text-blue-900">Rangkaian Acara</h2>
+            </div>
+
+            <div class="timeline-container w-full">
+                <!-- Event 1: Akad -->
+                <div class="relative flex items-center justify-between md:justify-around mb-12">
+                    <!-- Icon -->
+                    <div
+                        class="absolute left-0 md:left-1/2 w-12 h-12 bg-blue-600 rounded-full border-4 border-sky-50 shadow-lg flex items-center justify-center z-10 md:-ml-6">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+
+                    <!-- Ruang kosong untuk layout selang-seling di desktop -->
+                    <div class="hidden md:block md:w-5/12"></div>
+
+                    <!-- Card Akad -->
+                    <div class="w-full pl-16 md:pl-0 md:w-5/12">
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg shadow-sky-100/50 border border-sky-100">
+                            <h3 class="font-bold text-xl md:text-2xl text-blue-800 mb-1">Akad Nikah</h3>
+                            <p class="text-slate-500 font-medium text-sm md:text-base mb-1">Minggu, 31 Bulan 13 2095</p>
+                            <p class="text-slate-400 text-xs md:text-sm mb-4">Pukul 08.00 WITA - Selesai</p>
+                            <div class="h-px bg-slate-100 w-full mb-4"></div>
+                            <p class="text-xs md:text-sm font-semibold text-slate-700">Gedung Pertemuan Dummy<br><span
+                                    class="font-normal text-slate-500">Jl. Contoh Alamat No. 123</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2: Resepsi -->
+                <div class="relative flex flex-row-reverse md:flex-row items-center justify-between md:justify-around">
+                    <!-- Icon -->
+                    <div
+                        class="absolute left-0 md:left-1/2 w-12 h-12 bg-sky-400 rounded-full border-4 border-sky-50 shadow-lg flex items-center justify-center z-10 md:-ml-6">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+
+                    <!-- Card Resepsi -->
+                    <div class="w-full pl-16 md:pl-0 md:pr-0 md:w-5/12 text-left md:text-right">
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg shadow-sky-100/50 border border-sky-100">
+                            <h3 class="font-bold text-xl md:text-2xl text-blue-800 mb-1">Resepsi</h3>
+                            <p class="text-slate-500 font-medium text-sm md:text-base mb-1">Minggu, 31 Bulan 13 2095</p>
+                            <p class="text-slate-400 text-xs md:text-sm mb-4">Pukul 11.00 WITA - Selesai</p>
+                            <div class="h-px bg-slate-100 w-full mb-4"></div>
+                            <p class="text-xs md:text-sm font-semibold text-slate-700">Gedung Pertemuan Dummy<br><span
+                                    class="font-normal text-slate-500">Jl. Contoh Alamat No. 123</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Ruang kosong -->
+                    <div class="hidden md:block md:w-5/12"></div>
+                </div>
+            </div>
+
+            <!-- Peta -->
+            <div class="mt-16 md:mt-24 max-w-3xl mx-auto text-center">
+                <div
+                    class="w-full h-64 md:h-80 bg-slate-200 rounded-3xl overflow-hidden shadow-md border border-white mb-6 relative z-10">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.15392661858!2d114.58882041475727!3d-3.311749697589993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4231b14a87a25%3A0x6b866c1b35bfb6c9!2sPoliteknik%20Hasnur!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="#"
+                    class="inline-flex w-full md:w-auto items-center justify-center bg-blue-900 text-white px-8 py-3.5 rounded-full hover:bg-blue-800 active:bg-blue-950 transition shadow-lg shadow-blue-900/20 text-sm font-medium gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Buka Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: GALERI -->
+    <section id="galeri" class="py-20 md:py-28 bg-white text-center">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl md:text-5xl font-cursive text-blue-900 mb-10 md:mb-14">Momen Kasih</h2>
+            <!-- CSS Columns untuk Mobile (2 kolom) dan Desktop (3 kolom) -->
+            <div class="columns-2 md:columns-3 gap-3 md:gap-4 space-y-3 md:space-y-4">
+                <img src="https://via.placeholder.com/400x600?text=Foto+1"
+                    class="w-full rounded-2xl md:rounded-3xl shadow-sm border border-slate-100">
+                <img src="https://via.placeholder.com/400x400?text=Foto+2"
+                    class="w-full rounded-2xl md:rounded-3xl shadow-sm border border-slate-100">
+                <img src="https://via.placeholder.com/400x500?text=Foto+3"
+                    class="w-full rounded-2xl md:rounded-3xl shadow-sm border border-slate-100">
+                <img src="https://via.placeholder.com/400x300?text=Foto+4"
+                    class="w-full rounded-2xl md:rounded-3xl shadow-sm border border-slate-100">
+                <img src="https://via.placeholder.com/400x600?text=Foto+5"
+                    class="w-full rounded-2xl md:rounded-3xl shadow-sm border border-slate-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: RSVP & GIFT (Tumpuk vertikal di Mobile) -->
+    <section id="interaksi" class="py-20 md:py-28 bg-gradient-to-b from-sky-50 to-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row gap-10 md:gap-12">
+
+                <!-- RSVP -->
+                <div
+                    class="w-full md:w-1/2 bg-white p-7 md:p-10 rounded-[2rem] shadow-xl shadow-sky-100 border border-sky-50">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-2">Buku Tamu</h2>
+                    <p class="text-slate-500 text-xs md:text-sm mb-6 md:mb-8">Kirimkan doa dan konfirmasi kehadiran
+                        Anda.</p>
+
+                    <form class="space-y-4 md:space-y-5 text-left">
+                        <div>
+                            <input type="text"
+                                class="w-full border-b border-slate-300 p-2 text-sm bg-transparent focus:border-blue-500 outline-none transition"
+                                placeholder="Nama Lengkap">
+                        </div>
+                        <div>
+                            <select
+                                class="w-full border-b border-slate-300 p-2 text-sm bg-transparent focus:border-blue-500 outline-none transition text-slate-600">
+                                <option>Pilih Kehadiran...</option>
+                                <option>Hadir</option>
+                                <option>Tidak Hadir</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea
+                                class="w-full border-b border-slate-300 p-2 text-sm bg-transparent focus:border-blue-500 outline-none transition"
+                                rows="3" placeholder="Tuliskan ucapan dan doa..."></textarea>
+                        </div>
+                        <button type="button"
+                            class="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition shadow-md shadow-blue-200 w-full mt-2">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Amplop Digital -->
+                <div
+                    class="w-full md:w-1/2 bg-blue-900 p-7 md:p-10 rounded-[2rem] shadow-xl shadow-blue-900/20 text-white flex flex-col justify-center relative overflow-hidden">
+                    <!-- Ornamen Latar Gift -->
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-800 rounded-full opacity-50"></div>
+
+                    <div class="relative z-10">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2">Tanda Kasih</h2>
+                        <p class="text-blue-200 text-xs md:text-sm mb-8 leading-relaxed">
+                            Doa restu Anda merupakan karunia yang sangat berarti. Jika ingin mengirimkan kado digital,
+                            dapat melalui rekening di bawah ini:
+                        </p>
+
+                        <div
+                            class="bg-white/10 border border-white/20 p-5 md:p-6 rounded-2xl mb-4 backdrop-blur-sm text-center">
+                            <div class="font-bold text-lg md:text-xl text-sky-300 mb-1 tracking-widest">BCA</div>
+                            <p class="font-mono text-2xl md:text-3xl font-bold tracking-widest text-white mb-1"
+                                id="rek-bca">1234567890</p>
+                            <p class="text-blue-200 text-xs mb-4">a.n M. Aini</p>
+                            <button onclick="salinTeks('rek-bca')"
+                                class="bg-sky-500 text-white w-full px-5 py-2.5 rounded-full text-xs md:text-sm font-medium hover:bg-sky-400 active:bg-sky-600 transition flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                                Salin No. Rekening
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-slate-900 text-center text-white border-t-4 border-sky-500">
+        <p class="font-cursive text-3xl md:text-4xl text-sky-400 mb-2">Aini & Ayang</p>
+        <p class="text-slate-400 mb-6 text-xs md:text-sm tracking-widest">31 . 13 . 2095</p>
+        <p class="text-[10px] md:text-xs text-slate-500">© 2095 Code by M. Aini (Sang Ahli Prompt AI).</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- BAGIAN BARU: RESET SEMUA IZIN SAAT MULAI DARI AWAL ---
-        sessionStorage.clear();
-        // ----------------------------------------------------------
-
-        const btnSaya = document.getElementById('btn-saya');
-        const btnBukan = document.getElementById('btn-bukan');
-
-        let btnSayaSize = 16;
-        let btnSayaPaddingV = 12;
-        let btnSayaPaddingH = 24;
-
-        btnBukan.addEventListener('click', () => {
-            const currentSize = parseFloat(window.getComputedStyle(btnBukan).fontSize);
-            const newSize = currentSize * 0.8;
-            btnBukan.style.fontSize = `${newSize}px`;
-            btnBukan.style.padding = `${newSize * 0.75}px ${newSize * 1.5}px`;
-
-            btnSayaSize += 15;
-            btnSayaPaddingV += 10;
-            btnSayaPaddingH += 20;
-
-            btnSaya.style.fontSize = `${btnSayaSize}px`;
-            btnSaya.style.padding = `${btnSayaPaddingV}px ${btnSayaPaddingH}px`;
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('to');
+            if (nama) {
+                document.getElementById('nama-tamu').innerText = decodeURIComponent(nama);
+            }
         });
 
-        btnSaya.addEventListener('click', () => {
-            // --- BAGIAN BARU: MEMBERIKAN IZIN UNTUK KE NEXT1.HTML ---
-            sessionStorage.setItem('izin_next1', 'true');
-            // --------------------------------------------------------
-            window.location.href = 'next1.html';
-        });
+        function bukaUndangan() {
+            const cover = document.getElementById('cover');
+            const body = document.getElementById('body-content');
+            cover.classList.add('-translate-y-full');
+            body.classList.remove('no-scroll');
+        }
+
+        function salinTeks(idElement) {
+            const textToCopy = document.getElementById(idElement).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Nomor rekening berhasil disalin: " + textToCopy);
+            }).catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+            });
+        }
     </script>
-
 </body>
 
 </html>
