@@ -62,4 +62,3 @@ Cukup arahkan *root directory* ke *branch main*, dan web undangan siap disebarka
 ---
 
 **© 2026 Crafted by [M. Aini](https://github.com/HomePrint-Developer)**  
-*Anak Teknik Informatika / Sang Ahli Prompt AI*
